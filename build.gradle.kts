@@ -36,8 +36,8 @@ var REAL_VERSION = System.getenv("FORCED_VERSION")
 
 //val JVM_TARGET = JvmTarget.JVM_1_8
 //val JDK_VERSION = org.gradle.api.JavaVersion.VERSION_1_8
-val JVM_TARGET = JvmTarget.JVM_17
-val JDK_VERSION = org.gradle.api.JavaVersion.VERSION_17
+val JVM_TARGET = JvmTarget.JVM_1_8
+val JDK_VERSION = org.gradle.api.JavaVersion.VERSION_1_8
 val GROUP = "com.soywiz"
 
 kotlin {
