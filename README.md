@@ -8,3 +8,7 @@
 [![KDoc](https://img.shields.io/badge/docs-kdoc-blue)](https://korlibs.github.io/korlibs-library-template/)
 [![Documentation](https://img.shields.io/badge/docs-documentation-purple)](https://docs.korge.org/library-template/)
 <!-- /BADGES -->
+
+This repository serves as a template for the rest of the Korlibs.
+
+The Korlibs are available in this repository: <https://github.com/korlibs/korlibs>.
