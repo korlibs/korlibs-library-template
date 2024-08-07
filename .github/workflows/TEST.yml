@@ -8,12 +8,16 @@ on:
       - '**'
       - '!**.gitignore'
       - '!**.md'
+      - '!**.github/workflows/*'
+      - '**.github/workflows/TEST.yml'
   pull_request:
     branches: [ main, 'release/**' ]
     paths:
       - '**'
       - '!**.gitignore'
       - '!**.md'
+      - '!**.github/workflows/*'
+      - '**.github/workflows/TEST.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
