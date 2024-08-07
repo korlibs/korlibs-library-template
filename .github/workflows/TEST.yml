@@ -23,16 +23,10 @@ jobs:
       fail-fast: true # Once working, comment this
       matrix:
         include:
-          - { outputKey: testWindows, os: windows-latest, testTask: mingwX64Test, enableKotlinNative: true }
-          - { outputKey: testLinux, os: ubuntu-latest, testTask: linuxX64Test, buildTasks: publishLinuxArm64PublicationToMavenLocal, enableKotlinNative: true }
-          - { outputKey: testMacos, os: macos-13, testTask: macosX64Test, buildTasks: publishMacosArm64PublicationToMavenLocal, enableKotlinNative: true }
-          - { outputKey: testIos, os: macos-13, testTask: iosX64Test, enableKotlinNative: true }
-          #- { outputKey: testJs, os: ubuntu-latest, testTask: "wasmBrowserTest", buildTasks: "jsNodeTest jsBrowserTest" }
-          - { outputKey: testJs, os: ubuntu-latest, testTask: "wasmBrowserTest", buildTasks: "jsBrowserTest jsDenoTest" }
-          - { outputKey: testAndroid, os: ubuntu-latest, enableAndroid: true }
-          - { outputKey: testJvmMacos, os: macos-13, testTask: jvmTest apiCheck }
-          - { outputKey: testJvmLinux, os: ubuntu-latest, testTask: jvmTest, precompileTask: compileTestKotlinJvm, enableKotlinNative: true, enableSandbox: true, e2e: true }
-          - { outputKey: testJvmWindows, os: windows-latest, testTask: jvmTest, precompileTask: compileTestKotlinJvm }
+          - { outputKey: testMacosIos, os: macos-13, testTask: jvmTest macosX64Test iosX64Test, buildTasks: publishMacosArm64PublicationToMavenLocal }
+          - { outputKey: testJsAndroid, os: ubuntu-latest, testTask: "wasmBrowserTest", buildTasks: "jsBrowserTest jsDenoTest", enableAndroid: true }
+          - { outputKey: testLinux, os: ubuntu-latest, testTask: apiCheck jvmTest linuxX64Test, precompileTask: compileTestKotlinJvm, e2e: true }
+          - { outputKey: testWindows, os: windows-latest, testTask: jvmTest mingwX64Test jsDenoTest, precompileTask: compileTestKotlinJvm }
     #if: ${{ needs.changes.outputs[matrix.outputKey] == 'true' }}
     timeout-minutes: 30
     runs-on: ${{ matrix.os }}
