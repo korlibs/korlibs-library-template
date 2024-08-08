@@ -37,8 +37,8 @@ jobs:
         include:
           - { outputKey: testMacosIos, os: macos-13, testTask: jvmTest macosX64Test iosX64Test, buildTasks: publishMacosArm64PublicationToMavenLocal }
           - { outputKey: testJsAndroid, os: ubuntu-latest, testTask: "wasmBrowserTest", buildTasks: "jsBrowserTest jsDenoTest", enableAndroid: true }
-          - { outputKey: testLinux, os: ubuntu-latest, testTask: apiCheck jvmTest linuxX64Test, precompileTask: compileTestKotlinJvm, e2e: true }
-          - { outputKey: testWindows, os: windows-latest, testTask: jvmTest mingwX64Test jsDenoTest, precompileTask: compileTestKotlinJvm, enableCodecov: true }
+          - { outputKey: testLinux, os: ubuntu-latest, testTask: apiCheck jvmTest linuxX64Test, precompileTask: compileTestKotlinJvm, enableCodecov: true, e2e: true }
+          - { outputKey: testWindows, os: windows-latest, testTask: jvmTest mingwX64Test jsDenoTest, precompileTask: compileTestKotlinJvm }
     #if: ${{ needs.changes.outputs[matrix.outputKey] == 'true' }}
     timeout-minutes: 30
     runs-on: ${{ matrix.os }}
