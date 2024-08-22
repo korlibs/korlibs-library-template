@@ -64,3 +64,4 @@ jobs:
       - { if: "${{ matrix.e2e }}", name: Publish to maven local, run: ./gradlew publishJvmLocal publishKotlinMultiplatformPublicationToMavenLocal }
       - { name: Code coverage, run: ./gradlew koverXmlReport }
       - { if: "${{ matrix.enableCodecov }}", name: "Upload coverage reports to Codecov", uses: "codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673", with: { token: "${{ secrets.CODECOV_TOKEN }}" } } # https://github.com/codecov/codecov-action/releases/tag/v4.5.0
+      - { name: Stop daemon, run: ./gradlew --stop }
