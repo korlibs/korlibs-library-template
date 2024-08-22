@@ -20,6 +20,7 @@ plugins {
     id("org.jetbrains.kotlinx.kover") version "0.8.3" apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.16.2"
     id("org.jetbrains.dokka") version "1.9.20"
+    //id("org.ysb33r.ivypot") version "1.0.0"
     `maven-publish`
     signing
 }
